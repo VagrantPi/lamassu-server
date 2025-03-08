@@ -3,7 +3,7 @@
 require('../lib/environment-helper')
 const { asyncLocalStorage, defaultStore } = require('../lib/async-storage')
 const userManagement = require('../lib/new-admin/graphql/modules/userManagement')
-const authErrors = require('../lib/new-admin/graphql/errors/authentication')
+const authErrors = require('../lib/new-admin/graphql/errors')
 
 const name = process.argv[2]
 const role = process.argv[3]
