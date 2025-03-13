@@ -9,6 +9,7 @@ import LitecoinLogo from 'src/styling/logos/icon-litecoin-colour.svg?react'
 import MoneroLogo from 'src/styling/logos/icon-monero-colour.svg?react'
 import TetherLogo from 'src/styling/logos/icon-tether-colour.svg?react'
 import TronLogo from 'src/styling/logos/icon-tron-colour.svg?react'
+import USDCLogo from 'src/styling/logos/icon-usdc-colour.svg'
 import ZCashLogo from 'src/styling/logos/icon-zcash-colour.svg?react'
 
 import { Button } from 'src/components/buttons'
@@ -56,6 +57,8 @@ const getLogo = code => {
     case 'USDT':
     case 'USDT_TRON':
       return TetherLogo
+    case 'USDC':
+      return USDCLogo
     case 'XMR':
       return MoneroLogo
     case 'TRX':
