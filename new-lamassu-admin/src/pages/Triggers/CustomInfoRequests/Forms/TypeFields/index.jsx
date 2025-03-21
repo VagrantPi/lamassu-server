@@ -45,7 +45,7 @@ const validationSchema = Yup.lazy(values => {
           is: 'length',
           then: schema =>
             schema.min(0).required('The number of digits is required'),
-          otherwise: schema => schema.mixed().notRequired()
+          otherwise: schema => schema.notRequired()
         })
       })
     case 'text':
@@ -55,7 +55,7 @@ const validationSchema = Yup.lazy(values => {
         inputLabel2: Yup.string().when('constraintType', {
           is: 'spaceSeparation',
           then: schema => schema.label('Second word label').required(),
-          otherwise: schema => schema.mixed().notRequired()
+          otherwise: schema => schema.notRequired()
         })
       })
     case 'choiceList':
