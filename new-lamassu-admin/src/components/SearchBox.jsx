@@ -38,10 +38,10 @@ const SearchBox = memo(
         classes={{ option: classes.autocomplete }}
         value={filters}
         options={options}
-        getOptionLabel={it => it.value}
+        getOptionLabel={it => it.label || it.value}
         renderOption={it => (
           <div className={classes.item}>
-            <P className={classes.itemLabel}>{it.value}</P>
+            <P className={classes.itemLabel}>{it.label || it.value}</P>
             <P className={classes.itemType}>{it.type}</P>
           </div>
         )}

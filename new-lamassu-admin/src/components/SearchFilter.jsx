@@ -32,7 +32,7 @@ const SearchFilter = ({
             <Chip
               key={idx}
               classes={chipClasses}
-              label={`${onlyFirstToUpper(f.type)}: ${f.value}`}
+              label={`${onlyFirstToUpper(f.type)}: ${f.label || f.value}`}
               onDelete={() => onFilterDelete(f)}
               deleteIcon={<CloseIcon className={classes.button} />}
             />

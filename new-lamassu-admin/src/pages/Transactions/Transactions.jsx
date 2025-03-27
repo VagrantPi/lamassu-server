@@ -61,6 +61,7 @@ const GET_TRANSACTION_FILTERS = gql`
     transactionFilters {
       type
       value
+      label
     }
   }
 `
@@ -71,7 +72,7 @@ const GET_TRANSACTIONS = gql`
     $from: Date
     $until: Date
     $txClass: String
-    $machineName: String
+    $deviceId: String
     $customerName: String
     $fiatCode: String
     $cryptoCode: String
@@ -84,7 +85,7 @@ const GET_TRANSACTIONS = gql`
       from: $from
       until: $until
       txClass: $txClass
-      machineName: $machineName
+      deviceId: $deviceId
       customerName: $customerName
       fiatCode: $fiatCode
       cryptoCode: $cryptoCode
@@ -265,13 +266,13 @@ const Transactions = () => {
     setVariables({
       limit: NUM_LOG_RESULTS,
       txClass: filtersObject.type,
-      machineName: filtersObject.machine,
+      deviceId: filtersObject.machine,
       customerName: filtersObject.customer,
       fiatCode: filtersObject.fiat,
       cryptoCode: filtersObject.crypto,
       toAddress: filtersObject.address,
       status: filtersObject.status,
-      swept: filtersObject.swept === 'Swept'
+      swept: filtersObject.swept && filtersObject.swept === 'Swept'
     })
 
     refetch && refetch()
@@ -289,13 +290,13 @@ const Transactions = () => {
     setVariables({
       limit: NUM_LOG_RESULTS,
       txClass: filtersObject.type,
-      machineName: filtersObject.machine,
+      deviceId: filtersObject.machine,
       customerName: filtersObject.customer,
       fiatCode: filtersObject.fiat,
       cryptoCode: filtersObject.crypto,
       toAddress: filtersObject.address,
       status: filtersObject.status,
-      swept: filtersObject.swept === 'Swept'
+      swept: filtersObject.swept && filtersObject.swept === 'Swept'
     })
 
     refetch && refetch()
@@ -308,13 +309,13 @@ const Transactions = () => {
     setVariables({
       limit: NUM_LOG_RESULTS,
       txClass: filtersObject.type,
-      machineName: filtersObject.machine,
+      deviceId: filtersObject.machine,
       customerName: filtersObject.customer,
       fiatCode: filtersObject.fiat,
       cryptoCode: filtersObject.crypto,
       toAddress: filtersObject.address,
       status: filtersObject.status,
-      swept: filtersObject.swept === 'Swept'
+      swept: filtersObject.swept && filtersObject.swept === 'Swept'
     })
 
     refetch && refetch()
