@@ -20,7 +20,7 @@ const useStyles = makeStyles(mainStyles)
 const NUM_LOG_RESULTS = 5
 
 const GET_TRANSACTIONS = gql`
-  query transactions($limit: Int, $from: Date, $until: Date, $deviceId: ID) {
+  query transactions($limit: Int, $from: Date, $until: Date, $deviceId: String) {
     transactions(
       limit: $limit
       from: $from
