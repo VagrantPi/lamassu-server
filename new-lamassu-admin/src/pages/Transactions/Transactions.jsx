@@ -40,8 +40,8 @@ const GET_TRANSACTIONS_CSV = gql`
   query transactions(
     $simplified: Boolean
     $limit: Int
-    $from: Date
-    $until: Date
+    $from: DateTimeISO
+    $until: DateTimeISO
     $timezone: String
     $excludeTestingCustomers: Boolean
   ) {
@@ -69,8 +69,8 @@ const GET_TRANSACTION_FILTERS = gql`
 const GET_TRANSACTIONS = gql`
   query transactions(
     $limit: Int
-    $from: Date
-    $until: Date
+    $from: DateTimeISO
+    $until: DateTimeISO
     $txClass: String
     $deviceId: String
     $customerName: String
