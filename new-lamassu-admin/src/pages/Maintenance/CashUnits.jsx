@@ -97,7 +97,7 @@ const SET_CASSETTE_BILLS = gql`
 `
 
 const GET_BATCHES_CSV = gql`
-  query cashboxBatchesCsv($from: Date, $until: Date, $timezone: String) {
+  query cashboxBatchesCsv($from: DateTimeISO, $until: DateTimeISO, $timezone: String) {
     cashboxBatchesCsv(from: $from, until: $until, timezone: $timezone)
   }
 `

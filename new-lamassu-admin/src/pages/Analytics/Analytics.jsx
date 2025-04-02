@@ -59,8 +59,8 @@ const DAY_OPTIONS = R.map(
 
 const GET_TRANSACTIONS = gql`
   query transactions(
-    $from: Date
-    $until: Date
+    $from: DateTimeISO
+    $until: DateTimeISO
     $excludeTestingCustomers: Boolean
   ) {
     transactions(

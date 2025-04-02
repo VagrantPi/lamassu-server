@@ -57,7 +57,7 @@ const SHOW_ALL = { code: 'SHOW_ALL', display: 'Show all' }
 const NUM_LOG_RESULTS = 500
 
 const GET_CSV = gql`
-  query ServerData($limit: Int, $from: Date, $until: Date, $timezone: String) {
+  query ServerData($limit: Int, $from: DateTimeISO, $until: DateTimeISO, $timezone: String) {
     serverLogsCsv(
       limit: $limit
       from: $from
@@ -68,7 +68,7 @@ const GET_CSV = gql`
 `
 
 const GET_SERVER_DATA = gql`
-  query ServerData($limit: Int, $from: Date, $until: Date) {
+  query ServerData($limit: Int, $from: DateTimeISO, $until: DateTimeISO) {
     serverVersion
     uptime {
       name

@@ -37,8 +37,8 @@ const MACHINE_LOGS = gql`
   query machineLogsCsv(
     $deviceId: ID!
     $limit: Int
-    $from: Date
-    $until: Date
+    $from: DateTimeISO
+    $until: DateTimeISO
     $timezone: String
   ) {
     machineLogsCsv(

@@ -1,5 +1,5 @@
-FROM alpine:3.14 AS build
-RUN apk add --no-cache nodejs npm git curl build-base net-tools python3 postgresql-dev
+FROM node:22-alpine AS build
+RUN apk add --no-cache npm git curl build-base net-tools python3 postgresql-dev
 
 WORKDIR lamassu-server
 
@@ -10,8 +10,8 @@ RUN npm install --production
 COPY . ./
 
 
-FROM alpine:3.14 AS l-s-base
-RUN apk add --no-cache nodejs npm git curl bash libpq openssl ca-certificates
+FROM node:22-alpine AS l-s-base
+RUN apk add --no-cache npm git curl bash libpq openssl ca-certificates
 
 COPY --from=build /lamassu-server /lamassu-server
 
