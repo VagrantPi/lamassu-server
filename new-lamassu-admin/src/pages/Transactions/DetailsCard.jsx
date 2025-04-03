@@ -235,9 +235,9 @@ const DetailsRow = ({ it: tx, timezone }) => {
   }
 
   return (
-    <div className={classes.wrapper}>
+    <div data-cy="details" className={classes.wrapper}>
       <div className={classes.row}>
-        <div className={classes.direction}>
+        <div data-cy="direction" className={classes.direction}>
           <Label>Direction</Label>
           <div>
             <span className={classes.txIcon}>
@@ -247,7 +247,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
           </div>
         </div>
 
-        <div className={classes.availableIds}>
+        <div data-cy="availableIds" className={classes.availableIds}>
           <Label>Available IDs</Label>
           <Box display="flex" flexDirection="row">
             {tx.customerPhone && (
@@ -332,11 +332,11 @@ const DetailsRow = ({ it: tx, timezone }) => {
             )}
           </Box>
         </div>
-        <div className={classes.exchangeRate}>
+        <div data-cy="exchangeRate" className={classes.exchangeRate}>
           <Label>Exchange rate</Label>
           <div>{crypto > 0 ? displayExRate : '-'}</div>
         </div>
-        <div className={classes.commission}>
+        <div data-cy="commission" className={classes.commission}>
           <Label>Commission</Label>
           <div className={classes.container}>
             {`${commission} ${tx.fiatCode} (${commissionPercentage} %)`}
@@ -347,13 +347,13 @@ const DetailsRow = ({ it: tx, timezone }) => {
             )}
           </div>
         </div>
-        <div>
+        <div data-cy="fixedFee">
           <Label>Fixed fee</Label>
           <div>{`${fixedFee} ${tx.fiatCode}`}</div>
         </div>
       </div>
       <div className={classes.secondRow}>
-        <div className={classes.address}>
+        <div data-cy="address" className={classes.address}>
           <div className={classes.addressHeader}>
             <Label>Address</Label>
             {!R.isNil(tx.walletScore) && (
@@ -368,7 +368,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
             </CopyToClipboard>
           </div>
         </div>
-        <div className={classes.transactionId}>
+        <div data-cy="transactionId" className={classes.transactionId}>
           <Label>Transaction ID</Label>
           <div>
             {tx.txClass === 'cashOut' ? (
@@ -379,18 +379,18 @@ const DetailsRow = ({ it: tx, timezone }) => {
           </div>
         </div>
         {tx.txClass === 'cashIn' && (
-          <div className={classes.blockFee}>
+          <div data-cy="networkFee" className={classes.blockFee}>
             <Label>Network Fee</Label>
             {cryptoFee}
           </div>
         )}
-        <div className={classes.sessionId}>
+        <div data-cy="sessionId" className={classes.sessionId}>
           <Label>Session ID</Label>
           <CopyToClipboard>{tx.id}</CopyToClipboard>
         </div>
       </div>
       <div className={classes.lastRow}>
-        <div className={classes.status}>
+        <div data-cy="status" className={classes.status}>
           {errorElements}
           {((tx.txClass === 'cashOut' && getStatus(tx) === 'Pending') ||
             (tx.txClass === 'cashIn' && getStatus(tx) === 'Batched')) && (
@@ -409,7 +409,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
           )}
         </div>
         {!R.isNil(tx.swept) && R.includes(tx.cryptoCode, SWEEPABLE_CRYPTOS) && (
-          <div className={classes.swept}>
+          <div data-cy="swept" className={classes.swept}>
             <Label>Sweep status</Label>
             <span className={classes.bold}>
               {tx.swept ? `Swept` : `Unswept`}

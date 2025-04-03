@@ -53,6 +53,7 @@ const Row = ({
   return (
     <div className={classes.rowWrapper}>
       <div
+        data-cy={id}
         className={classnames({ [classes.before]: expanded && index !== 0 })}>
         <Tr
           size={size}

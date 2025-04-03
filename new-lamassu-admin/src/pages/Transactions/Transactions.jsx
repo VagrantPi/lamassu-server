@@ -191,7 +191,7 @@ const Transactions = () => {
         <div className={classes.flexWrapper}>
           <div className={classes.overflowTd}>{Customer.displayName(it)}</div>
           {!it.isAnonymous && (
-            <div onClick={() => redirect(it.customerId)}>
+            <div data-cy="customer-link" onClick={() => redirect(it.customerId)}>
               {it.hasError || it.batchError ? (
                 <CustomerLinkWhiteIcon className={classes.customerLinkIcon} />
               ) : (

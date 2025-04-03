@@ -53,7 +53,7 @@ const Td = ({
     [classes.size]: !header,
     [classes.bold]: !header && bold
   }
-  return <div className={classnames(className, classNames)}>{children}</div>
+  return <div data-cy={`td-${header}`} className={classnames(className, classNames)}>{children}</div>
 }
 
 const Th = ({ children, ...props }) => {
