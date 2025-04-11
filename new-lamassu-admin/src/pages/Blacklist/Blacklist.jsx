@@ -1,7 +1,6 @@
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useQuery, useMutation, gql } from "@apollo/client";
 import { Box, Dialog, DialogContent, DialogActions } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useState } from 'react'
 import { HelpTooltip } from 'src/components/Tooltip'

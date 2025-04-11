@@ -1,8 +1,7 @@
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, gql } from "@apollo/client";
 import { toUnit, formatCryptoAddress } from '@lamassu/coins/lightUtils'
 import { makeStyles } from '@material-ui/core'
 import BigNumber from 'bignumber.js'
-import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'

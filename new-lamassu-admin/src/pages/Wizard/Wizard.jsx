@@ -1,7 +1,6 @@
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, gql } from "@apollo/client";
 import { makeStyles, Dialog, DialogContent } from '@material-ui/core'
 import classnames from 'classnames'
-import gql from 'graphql-tag'
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { getWizardStep, STEPS } from 'src/pages/Wizard/helper'

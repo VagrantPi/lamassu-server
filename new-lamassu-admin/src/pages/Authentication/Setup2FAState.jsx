@@ -1,7 +1,6 @@
-import { useMutation, useQuery, useLazyQuery } from '@apollo/react-hooks'
+import { useMutation, useQuery, useLazyQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core/styles'
 import { Form, Formik } from 'formik'
-import gql from 'graphql-tag'
 import QRCode from 'qrcode.react'
 import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'

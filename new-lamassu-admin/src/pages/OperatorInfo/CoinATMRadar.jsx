@@ -1,6 +1,5 @@
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useQuery, useMutation, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core/styles'
-import gql from 'graphql-tag'
 import React, { memo } from 'react'
 import { HelpTooltip } from 'src/components/Tooltip'
 import { H4, P, Label2 } from 'src/components/typography'

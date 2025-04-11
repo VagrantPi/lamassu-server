@@ -1,8 +1,7 @@
-import { useLazyQuery, useQuery } from '@apollo/react-hooks'
+import { useLazyQuery, useQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core/styles'
 import { subMinutes } from 'date-fns'
 import FileSaver from 'file-saver'
-import gql from 'graphql-tag'
 import React, { useState, useEffect } from 'react'
 import Modal from 'src/components/Modal'
 import { H3, P } from 'src/components/typography'

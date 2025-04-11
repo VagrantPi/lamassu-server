@@ -1,8 +1,7 @@
-import { useMutation, useLazyQuery } from '@apollo/react-hooks'
+import { useMutation, useLazyQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core/styles'
 import { startAssertion } from '@simplewebauthn/browser'
 import { Field, Form, Formik } from 'formik'
-import gql from 'graphql-tag'
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Label3, P } from 'src/components/typography'

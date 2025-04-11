@@ -1,9 +1,6 @@
-import { ApolloProvider } from '@apollo/react-hooks'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloClient } from 'apollo-client'
-import { ApolloLink } from 'apollo-link'
-import { onError } from 'apollo-link-error'
-import { createUploadLink } from 'apollo-upload-client'
+import { ApolloClient, ApolloProvider, InMemoryCache, ApolloLink } from "@apollo/client";
+import { onError } from "@apollo/client/link/error"
+import createUploadLink from "apollo-upload-client/createUploadLink.mjs";
 import React, { useContext } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
