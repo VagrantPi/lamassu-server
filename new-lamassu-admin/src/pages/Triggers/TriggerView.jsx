@@ -3,7 +3,7 @@ import { makeStyles, Box } from '@material-ui/core'
 import * as R from 'ramda'
 import React, { useState } from 'react'
 import { H2 } from 'src/components/typography'
-import { v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 import { Button } from 'src/components/buttons'
 import { Table as EditableTable } from 'src/components/editableTable'
@@ -51,7 +51,7 @@ const TriggerView = ({
   }
 
   const add = rawConfig => {
-    const toSave = R.concat([{ id: v4(), direction: 'both', ...rawConfig }])(
+    const toSave = R.concat([{ id: uuidv4(), direction: 'both', ...rawConfig }])(
       triggers
     )
     return saveConfig({ variables: { config: { triggers: toServer(toSave) } } })

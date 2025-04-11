@@ -38,7 +38,7 @@
     "react-use": "15.3.2",
     "react-virtualized": "^9.21.2",
     "ua-parser-js": "1.0.40",
-    "uuid": "^8.3.2",
+    "uuid": "11.1.0",
     "yup": "1.4.0"
   },
   "devDependencies": {

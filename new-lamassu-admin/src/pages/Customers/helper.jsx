@@ -6,7 +6,7 @@ import { Field, useFormikContext } from 'formik'
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import * as R from 'ramda'
 import { H4 } from 'src/components/typography'
-import * as uuid from 'uuid'
+import { validate as uuidValidate } from 'uuid';
 import * as Yup from 'yup'
 
 import {
@@ -84,7 +84,7 @@ const getAuthorizedStatus = (it, triggers, customRequests) => {
 
   const pendingFieldStatus = R.map(ite => {
     if (isManualField(ite)) {
-      if (uuid.validate(ite)) {
+      if (uuidValidate(ite)) {
         const request = R.find(
           iter => iter.infoRequestId === ite,
           it.customInfoRequests
@@ -103,7 +103,7 @@ const getAuthorizedStatus = (it, triggers, customRequests) => {
 
   const rejectedFieldStatus = R.map(ite => {
     if (isManualField(ite)) {
-      if (uuid.validate(ite)) {
+      if (uuidValidate(ite)) {
         const request = R.find(
           iter => iter.infoRequestId === ite,
           it.customInfoRequests
