@@ -79,7 +79,6 @@ const Input2FAModal = ({ showModal, handleClose, setConfirmation }) => {
               numInputs={6}
               error={invalidCode}
               containerStyle={classes.codeContainer}
-              shouldAutoFocus
             />
             <button onClick={handleSubmit} className={classes.enterButton} />
           </Form>

@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useLazyQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core/styles'
 import { Form, Formik } from 'formik'
-import QRCode from 'qrcode.react'
+import { QRCodeSVG as QRCode } from 'qrcode.react'
 import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Label3, P } from 'src/components/typography'

@@ -6,15 +6,15 @@ const styles = {
     height: '5rem',
     border: '2px solid',
     borderColor: zircon,
-    borderRadius: '4px'
-  },
-  focus: {
-    border: '2px solid',
-    borderColor: primaryColor,
     borderRadius: '4px',
     '&:focus': {
-      outline: 'none'
-    }
+      border: '2px solid',
+      borderColor: primaryColor,
+      borderRadius: '4px',
+      '&:focus': {
+        outline: 'none'
+      }
+    },
   },
   error: {
     borderColor: errorColor

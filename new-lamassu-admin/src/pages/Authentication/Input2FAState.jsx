@@ -116,7 +116,6 @@ const Input2FAState = ({ state, dispatch }) => {
             onChange={handle2FAChange}
             numInputs={6}
             error={invalidToken}
-            shouldAutoFocus
           />
           <button onClick={handleSubmit} className={classes.enterButton} />
         </Form>

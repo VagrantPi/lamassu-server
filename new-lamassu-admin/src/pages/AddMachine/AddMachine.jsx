@@ -3,7 +3,7 @@ import { Dialog, DialogContent, SvgIcon, IconButton } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import classnames from 'classnames'
 import { Form, Formik, FastField } from 'formik'
-import QRCode from 'qrcode.react'
+import {QRCodeSVG as QRCode} from 'qrcode.react'
 import * as R from 'ramda'
 import React, { memo, useState, useEffect, useRef } from 'react'
 import Title from 'src/components/Title'
@@ -74,7 +74,7 @@ const QrCodeComponent = ({ classes, qrCode, name, count, onPaired }) => {
           <QRCode
             size={280}
             fgColor={primaryColor}
-            includeMargin
+            marginSize={4}
             value={qrCode}
             className={classes.qrCodeBorder}
           />
