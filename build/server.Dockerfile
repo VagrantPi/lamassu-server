@@ -1,7 +1,7 @@
 FROM node:22-alpine AS build
 RUN apk add --no-cache npm git curl build-base net-tools python3 postgresql-dev
 
-WORKDIR lamassu-server
+WORKDIR /lamassu-server
 
 COPY ["package.json", "package-lock.json", "./"]
 RUN npm version --allow-same-version --git-tag-version false --commit-hooks false 1.0.0
@@ -28,6 +28,8 @@ ENTRYPOINT [ "/lamassu-server/bin/lamassu-server-entrypoint.sh" ]
 FROM node:22-alpine AS build-ui
 RUN apk add --no-cache npm git curl build-base python3
 
+WORKDIR /app
+
 COPY ["new-lamassu-admin/package.json", "new-lamassu-admin/package-lock.json", "./"]
 
 RUN npm version --allow-same-version --git-tag-version false --commit-hooks false 1.0.0
@@ -38,7 +40,7 @@ RUN npm run build
 
 
 FROM l-s-base AS l-a-s
-COPY --from=build-ui /build /lamassu-server/public
+COPY --from=build-ui /app/build /lamassu-server/public
 
 RUN chmod +x /lamassu-server/bin/lamassu-admin-server-entrypoint.sh
 

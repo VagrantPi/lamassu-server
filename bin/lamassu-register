@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 require('../lib/environment-helper')
-const { asyncLocalStorage, defaultStore } = require('../lib/async-storage')
 const userManagement = require('../lib/new-admin/graphql/modules/userManagement')
 const authErrors = require('../lib/new-admin/graphql/errors')
 
@@ -32,23 +31,21 @@ if (role !== 'user' && role !== 'superuser') {
   process.exit(2)
 }
 
-asyncLocalStorage.run(defaultStore(), () => {
-  userManagement.createRegisterToken(name, role).then(token => {
-    if (domain === 'localhost' && process.env.NODE_ENV !== 'production') {
-      console.log(`https://${domain}:3001/register?t=${token.token}`)
-    } else {
-      console.log(`https://${domain}/register?t=${token.token}`)
-    }
+userManagement.createRegisterToken(name, role).then(token => {
+  if (domain === 'localhost' && process.env.NODE_ENV !== 'production') {
+    console.log(`https://${domain}:3001/register?t=${token.token}`)
+  } else {
+    console.log(`https://${domain}/register?t=${token.token}`)
+  }
 
-    process.exit(0)
-  }).catch(err => {
+  process.exit(0)
+}).catch(err => {
 
-    if (err instanceof authErrors.UserAlreadyExistsError){
-      console.log(`A user with email ${name} already exists!`)
-      process.exit(2)
-    }
-    
-    console.log('Error: %s', err)
-    process.exit(3)
-  })
+  if (err instanceof authErrors.UserAlreadyExistsError){
+    console.log(`A user with email ${name} already exists!`)
+    process.exit(2)
+  }
+
+  console.log('Error: %s', err)
+  process.exit(3)
 })
