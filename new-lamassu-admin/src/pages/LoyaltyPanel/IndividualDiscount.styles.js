@@ -49,6 +49,9 @@ const styles = {
   },
   error: {
     color: errorColor
+  },
+  disabled: {
+    cursor: 'wait'
   }
 }
 

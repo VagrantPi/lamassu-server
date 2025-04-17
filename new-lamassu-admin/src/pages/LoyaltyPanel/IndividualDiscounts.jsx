@@ -13,6 +13,7 @@ import { Link, Button, IconButton } from 'src/components/buttons'
 
 import styles from './IndividualDiscount.styles'
 import IndividualDiscountModal from './IndividualDiscountModal'
+import classnames from 'classnames'
 
 const useStyles = makeStyles(styles)
 
@@ -20,7 +21,11 @@ const GET_INDIVIDUAL_DISCOUNTS = gql`
   query individualDiscounts {
     individualDiscounts {
       id
-      customerId
+      customer {
+        id
+        phone
+        idCardData
+      }
       discount
     }
   }
@@ -62,7 +67,7 @@ const IndividualDiscounts = () => {
   const [showModal, setShowModal] = useState(false)
   const toggleModal = () => setShowModal(!showModal)
 
-  const { data: discountResponse, loading: discountLoading } = useQuery(
+  const { data: discountResponse, loading } = useQuery(
     GET_INDIVIDUAL_DISCOUNTS
   )
   const { data: customerData, loading: customerLoading } =
@@ -74,11 +79,6 @@ const IndividualDiscounts = () => {
       refetchQueries: () => ['individualDiscounts']
     }
   )
-
-  const getCustomer = id => {
-    const customers = R.path(['customers'])(customerData)
-    return R.find(R.propEq('id', id))(customers)
-  }
 
   const [deleteDiscount] = useMutation(DELETE_DISCOUNT, {
     onError: ({ message }) => {
@@ -96,11 +96,10 @@ const IndividualDiscounts = () => {
       textAlign: 'left',
       size: 'sm',
       view: t => {
-        const customer = getCustomer(t.customerId)
         return (
           <div className={classes.identification}>
             <PhoneIdIcon />
-            <span>{customer.phone}</span>
+            <span>{t.customer.phone}</span>
           </div>
         )
       }
@@ -111,7 +110,7 @@ const IndividualDiscounts = () => {
       textAlign: 'left',
       size: 'sm',
       view: t => {
-        const customer = getCustomer(t.customerId)
+        const customer = t.customer
         if (R.isNil(customer.idCardData)) {
           return <>{'-'}</>
         }
@@ -153,8 +152,6 @@ const IndividualDiscounts = () => {
     }
   ]
 
-  const loading = discountLoading || customerLoading
-
   return (
     <>
       {!loading && !R.isEmpty(discountResponse.individualDiscounts) && (
@@ -165,7 +162,7 @@ const IndividualDiscounts = () => {
             className={classes.tableWidth}
             display="flex"
             justifyContent="flex-end">
-            <Link color="primary" onClick={toggleModal}>
+            <Link color="primary" onClick={toggleModal} className={classnames({[classes.disabled]: customerLoading})} disabled={customerLoading}>
               Add new code
             </Link>
           </Box>
