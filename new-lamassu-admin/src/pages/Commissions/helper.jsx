@@ -2,7 +2,7 @@ import * as R from 'ramda'
 import React from 'react'
 import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
 import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
-import { v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import * as Yup from 'yup'
 
 import { Autocomplete, NumberInput } from 'src/components/inputs/formik'
@@ -426,7 +426,7 @@ const createCommissions = (cryptoCode, deviceId, isDefault, config) => {
     machine: deviceId,
     cryptoCurrencies: [cryptoCode],
     default: isDefault,
-    id: v4()
+    id: uuidv4()
   }
 }
 

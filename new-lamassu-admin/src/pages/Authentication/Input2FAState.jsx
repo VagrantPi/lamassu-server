@@ -1,7 +1,6 @@
-import { useMutation, useLazyQuery } from '@apollo/react-hooks'
+import { useMutation, useLazyQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core/styles'
 import { Form, Formik } from 'formik'
-import gql from 'graphql-tag'
 import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { TL1, P } from 'src/components/typography'
@@ -117,7 +116,6 @@ const Input2FAState = ({ state, dispatch }) => {
             onChange={handle2FAChange}
             numInputs={6}
             error={invalidToken}
-            shouldAutoFocus
           />
           <button onClick={handleSubmit} className={classes.enterButton} />
         </Form>

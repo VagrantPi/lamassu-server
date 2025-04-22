@@ -1,11 +1,10 @@
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, gql } from "@apollo/client";
 import { formatCryptoAddress } from '@lamassu/coins/lightUtils'
 import { makeStyles } from '@material-ui/core/styles'
 import BigNumber from 'bignumber.js'
 import classnames from 'classnames'
 import { format } from 'date-fns/fp'
-import gql from 'graphql-tag'
-import QRCode from 'qrcode.react'
+import { QRCodeSVG as QRCode } from 'qrcode.react'
 import * as R from 'ramda'
 import React, { useState } from 'react'
 import TableLabel from 'src/components/TableLabel'

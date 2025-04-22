@@ -1,11 +1,10 @@
-import { useLazyQuery, useMutation } from '@apollo/react-hooks'
+import { useLazyQuery, useMutation, gql } from "@apollo/client";
 import { toUnit, formatCryptoAddress } from '@lamassu/coins/lightUtils'
 import { makeStyles, Box } from '@material-ui/core'
 import BigNumber from 'bignumber.js'
 import classNames from 'classnames'
 import { add, differenceInYears, format, sub, parse } from 'date-fns/fp'
 import FileSaver from 'file-saver'
-import gql from 'graphql-tag'
 import JSZip from 'jszip'
 import * as R from 'ramda'
 import React, { memo, useState } from 'react'

@@ -1,7 +1,6 @@
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, gql } from "@apollo/client";
 import { getEquivalentCode } from '@lamassu/coins/lightUtils'
 import { makeStyles } from '@material-ui/core'
-import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useState } from 'react'
 import { H4 } from 'src/components/typography'

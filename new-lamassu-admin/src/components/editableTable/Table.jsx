@@ -6,7 +6,7 @@ import PromptWhenDirty from 'src/components/PromptWhenDirty'
 import Link from 'src/components/buttons/Link'
 import { TBody, Table } from 'src/components/fake-table/Table'
 import { Info2, TL1 } from 'src/components/typography'
-import { v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 import { AddButton } from 'src/components/buttons/index'
 
@@ -191,7 +191,7 @@ const ETable = ({
                     <Formik
                       validateOnBlur={false}
                       validateOnChange={false}
-                      initialValues={{ id: v4(), ...initialValues }}
+                      initialValues={{ id: uuidv4(), ...initialValues }}
                       onReset={onReset}
                       validationSchema={validationSchema}
                       onSubmit={innerSave}>

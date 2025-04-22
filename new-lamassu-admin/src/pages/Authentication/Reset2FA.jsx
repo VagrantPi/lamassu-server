@@ -1,9 +1,8 @@
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useQuery, useMutation, gql } from "@apollo/client";
 import { makeStyles, Grid } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
 import { Form, Formik } from 'formik'
-import gql from 'graphql-tag'
-import QRCode from 'qrcode.react'
+import { QRCodeSVG as QRCode } from 'qrcode.react'
 import React, { useReducer, useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import { H2, Label2, Label3, P } from 'src/components/typography'
@@ -176,7 +175,6 @@ const Reset2FA = () => {
                           onChange={handle2FAChange}
                           numInputs={6}
                           error={invalidToken}
-                          shouldAutoFocus
                         />
                         <button
                           onClick={handleSubmit}

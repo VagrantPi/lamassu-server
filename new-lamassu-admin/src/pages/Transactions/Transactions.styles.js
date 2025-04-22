@@ -73,6 +73,10 @@ const mainStyles = {
   titleWrapper,
   titleAndButtonsContainer,
   buttonsWrapper,
+  pendingBox: {
+    display: 'flex',
+    alignItems: 'center',
+  },
   headerLabels: {
     display: 'flex',
     flexDirection: 'row',

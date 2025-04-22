@@ -1,9 +1,8 @@
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import BigNumber from 'bignumber.js'
 import classnames from 'classnames'
-import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React from 'react'
 import { Label2 } from 'src/components/typography'

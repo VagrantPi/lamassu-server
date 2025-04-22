@@ -17,8 +17,7 @@ const CodeInput = ({
   numInputs,
   error,
   inputStyle,
-  containerStyle,
-  ...props
+  containerStyle
 }) => {
   const classes = useStyles()
   const typographyClasses = useTypographyStyles()
@@ -29,18 +28,21 @@ const CodeInput = ({
       value={value}
       onChange={onChange}
       numInputs={numInputs}
-      separator={<span> </span>}
+      renderSeparator={<span> </span>}
+      shouldAutoFocus
       containerStyle={classnames(containerStyle, classes.container)}
       inputStyle={classnames(
         inputStyle,
         classes.input,
-        typographyClasses.confirmationCode
+        typographyClasses.confirmationCode,
+        error && classes.error
       )}
-      focusStyle={classes.focus}
-      errorStyle={classes.error}
-      hasErrored={error}
-      isInputNum={true}
-      {...props}
+      inputType={'tel'}
+      renderInput={(props) => (
+        <input
+          {...props}
+        />
+      )}
     />
   )
 }

@@ -1,6 +1,5 @@
-import { useMutation, useQuery } from '@apollo/react-hooks'
+import { useMutation, useQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core'
-import gql from 'graphql-tag'
 import React, { useState, useEffect } from 'react'
 import { H4, Info3 } from 'src/components/typography'
 import FormRenderer from 'src/pages/Services/FormRenderer'

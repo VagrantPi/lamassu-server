@@ -1,7 +1,6 @@
-import { useLazyQuery } from '@apollo/react-hooks'
+import { useLazyQuery, gql } from "@apollo/client";
 import { makeStyles } from '@material-ui/core/styles'
 import { Form, Formik } from 'formik'
-import gql from 'graphql-tag'
 import React, { useState } from 'react'
 import Modal from 'src/components/Modal'
 import { Info2, P } from 'src/components/typography'
@@ -80,7 +79,6 @@ const Input2FAModal = ({ showModal, handleClose, setConfirmation }) => {
               numInputs={6}
               error={invalidCode}
               containerStyle={classes.codeContainer}
-              shouldAutoFocus
             />
             <button onClick={handleSubmit} className={classes.enterButton} />
           </Form>
