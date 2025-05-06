@@ -11,6 +11,7 @@ export default defineConfig({
     outDir: 'build'
   },
   server: {
+    allowedHosts: true,
     port: 3001,
     proxy: {
       '^/(graphql|operator-data|front-camera-photo|id-card-photo)': {

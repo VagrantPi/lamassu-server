@@ -10,6 +10,7 @@ import Notifications from 'src/pages/Notifications/Notifications'
 import CoinAtmRadar from 'src/pages/OperatorInfo/CoinATMRadar'
 import ContactInfo from 'src/pages/OperatorInfo/ContactInfo'
 import MachineScreens from 'src/pages/OperatorInfo/MachineScreens'
+import Advertising from 'src/pages/OperatorInfo/Advertising'
 import ReceiptPrinting from 'src/pages/OperatorInfo/ReceiptPrinting'
 import SMSNotices from 'src/pages/OperatorInfo/SMSNotices/SMSNotices'
 import TermsConditions from 'src/pages/OperatorInfo/TermsConditions'
@@ -201,6 +202,13 @@ const getLamassuRoutes = () => [
             route: '/settings/operator-info/machine-screens',
             allowedRoles: [ROLES.USER, ROLES.SUPERUSER],
             component: MachineScreens
+          },
+          {
+            key: 'advertising',
+            label: 'Advertising',
+            route: '/settings/operator-info/advertising',
+            allowedRoles: [ROLES.USER, ROLES.SUPERUSER],
+            component: Advertising
           }
         ]
       }
